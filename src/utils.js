@@ -46,8 +46,6 @@ export const height = (a) => {
   return team;
 };
 
-
-
 export const position = (a) => {
   var tmp_group = [];
   var group1 = []; // C
@@ -76,10 +74,16 @@ export const position = (a) => {
   return team;
 };
 
-const compareFunction = (a, b) => {
-  if (a[2] === b[2]) {
-      return 0;
-  } else {
-      return a[2] < b[2] ? -1 : 1;
+export const stringclipboard = (a, b) => {
+  var str_b = 'Team Balck: ';
+  var str_w = '\n\nTeam White: ';
+  for (let i = 0; i < a.length; i++){
+    str_b = str_b + '\n' + a[i];
   }
+  for (let i = 0; i < b.length; i++){
+    str_w = str_w + '\n' + b[i];
+  }
+  const str = str_b + str_w
+  //`Team 1: \n${team1[0]}\n${team1[1]}\n${team1[2]}\n${team1[3]}\n${team1[4]}\n\nTeam 2:\n${team2[0]}\n${team2[1]}\n${team2[2]}\n${team2[3]}\n${team2[4]}`;
+  return str;
 };

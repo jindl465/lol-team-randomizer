@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.scss";
-import { position, height, shuffle } from "./utils";
+import { stringclipboard, position, height, shuffle } from "./utils";
 
 const commonPlayers = [
   "이건희_G_161",
@@ -73,8 +73,9 @@ function App() {
     setTeam2(shuffledPlayers.filter((_, index) => index % 2 == 1));
   };
 
-  const teamsToString = () =>
-    `Team 1: \n${team1[0]}\n${team1[1]}\n${team1[2]}\n${team1[3]}\n${team1[4]}\n\nTeam 2:\n${team2[0]}\n${team2[1]}\n${team2[2]}\n${team2[3]}\n${team2[4]}`;
+  // const teamsToString = () =>{
+  //   const str = stringclipboard(team1, team2);
+  // }
 
   return (
     <div className="app-content">
@@ -131,7 +132,7 @@ function App() {
             <img
               className="copy-to-clipboard"
               onClick={() => {
-                navigator.clipboard.writeText(teamsToString());
+                navigator.clipboard.writeText(stringclipboard(team1, team2));
               }}
               src="/copy.svg"
               role="button"
